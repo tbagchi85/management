@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
 
-          address = Address.new()
+          @address = Address.new()
           @address.street_1 = "Bally howrah"
           @address.save
 
