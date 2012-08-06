@@ -1,0 +1,17 @@
+<h2 class="sub_header">Authenticate Yourselve</h2>
+<div class="row">
+  <div class="span6 offset3 form">
+    <%= form_for(:user_approves, :url => user_approves_path) do |f| %>
+
+        <%= f.label :key_id %>
+        <%= f.text_field :key_id %>
+
+        <%= f.label :key_token %>
+        <%= f.text_field :key_token %> <br/>
+
+        <%= f.submit "Authenticate", class: "btn btn-small btn-primary" %>
+    <% end %>
+
+  </div>
+</div>
+

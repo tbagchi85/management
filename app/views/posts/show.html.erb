@@ -1,0 +1,38 @@
+<h2 class="sub_header"><%= @post.title %></h2>
+<div class="row">
+  <div class="span6 offset3 ">
+    <p>
+      <b>Body:</b>
+      <%= @post.body %>
+    </p>
+    <%= @post.user.profile.full_name if @post.user %><br/>
+    <%= @post.created_at.strftime("%b %d,%Y") %><br/>
+    <%= link_to 'Edit', edit_post_path(@post) %> |
+    <%= link_to 'Back', posts_path %>
+
+    <h2>Comments</h2>
+    <% @post.comments.each do |comment|%>
+        <p><strong>posted <%= time_ago_in_words(comment.created_at)%></strong>
+        by <strong><%= comment.user.profile.full_name if comment.user %></strong></p>
+        <%= h(comment.body)%>
+        <%#= link_to 'Destroy', @post, :comment_id => comment.id , method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+    <%#= render :partial => @post.comments %>
+    <% if current_user %>
+        <%= form_for [@post,@comment = Comment.new] do |f| %>
+            <% if @comment.errors.any? %>
+                <% @comment.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            <% end %>
+            <p><%= f.label :body, "New Comment" %>
+              <%= f.text_area :body %></p>
+            <p><%= f.submit %></p>
+        <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+
+

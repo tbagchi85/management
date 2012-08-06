@@ -1,0 +1,2 @@
+module UserApprovesHelper
+end

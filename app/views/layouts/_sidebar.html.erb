@@ -1,0 +1,9 @@
+<% if user_signed_in? %> <div id="nav">
+  <%= link_to "Posts", posts_path, :class => "btn btn-small btn-primary button-size" %>
+  <%= link_to "Profile", profiles_path, :class => "btn btn-small btn-primary button-size" %>
+  <% if current_user.user_admin %>
+      <%= link_to "Students Generate", new_admin_student_path, :class => "btn btn-small btn-primary button-size" %>
+      <%= link_to "Students Info", admin_students_path, :class => "btn btn-small btn-primary button-size" %>
+  <% end %>
+  </div>
+<% end %>

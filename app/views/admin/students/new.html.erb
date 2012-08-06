@@ -1,0 +1,14 @@
+<h2 class="sub_header">Generate Students  Permission</h2>
+<div class="row">
+  <div class="span6 offset3 form">
+    <%= form_for [:admin,@student] do |f| %>
+        <%= f.label :standard %>
+        <%= f.text_field :standard %>
+        <%= f.label :section %>
+        <%= f.text_field :section %>
+        <%= f.label :count %>
+        <%= f.text_field :count %> <br/>
+        <%= f.submit "Generate", class: "btn btn-small btn-primary" %>
+    <% end %>
+  </div>
+</div>

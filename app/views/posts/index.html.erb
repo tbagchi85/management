@@ -1,0 +1,27 @@
+<script>
+    $(function() {
+        $( "#accordion" ).accordion();
+    });
+    $(function() {
+        $( "#tabs" ).tabs();
+    });
+</script>
+
+<div class="student_list">
+  <h2 class="sub_header">Post Lists</h2>
+  <div id="accordion">
+    <% @posts.each do |post| %>
+        <h3><%= "#{post.title} --#{post.created_at.strftime("%b,%d %Y")}" %></h3>
+        <div>
+          <%= post.body %>
+          <ul>
+          <%= link_to 'Show', post %>
+          <%= link_to 'Edit', edit_post_path(post) %>
+          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </ul>
+        </div>
+    <% end %>
+  </div>
+
+<%= link_to 'New Post', new_post_path %>
+</div>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  standard: 1
+  section: MyString
+  count: 1
+  key_id: MyString
+  key_token: MyString
+
+two:
+  standard: 1
+  section: MyString
+  count: 1
+  key_id: MyString
+  key_token: MyString

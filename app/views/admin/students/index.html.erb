@@ -1,0 +1,34 @@
+
+<div class="student_list">
+  <h2 class="sub_header">Student Lists</h2>
+  <table class="student_table">
+
+    <tr class="odd">
+      <th class="col-seperate">Standard</th>
+      <th class="col-seperate">Section</th>
+      <th class="col-seperate">Key_ID</th>
+      <th class="col-seperate">Key Token</th>
+      <th class="col-seperate">Approved</th>
+      <th class="col-seperate">User Info</th>
+      <th></th>
+    </tr>
+    <% n=1 %>
+    <% @students.each do |student| %>
+        <tr class="<%= n%2 == 0 ? "odd" : "even" %>">
+          <td class="col-seperate"><%= student.standard %></td>
+          <td class="col-seperate"><%= student.section %></td>
+          <td class="col-seperate"><%= student.key_id %></td>
+          <td class="col-seperate"><%= student.key_token %></td>
+          <td class="col-seperate"><%= student.approved %></td>
+          <td class="col-seperate"><%= student.user.email if student.user %></td>
+          <td><%#= link_to 'Show', user %></td>
+          <td><%#= link_to 'Edit', edit_user_path(user) %></td>
+          <td><%#= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% n += 1 %>
+    <% end %>
+  </table>
+  <br />
+  <%= paginate @students %>
+<%#=  link_to 'Another link with obtrusive JavaScript', '#', :onclick => 'dialog("Please no!")' %>
+</div>
